@@ -1,26 +1,27 @@
 <template>
-    <div class="todo-item" v-bind:class="{'is-complete':todo.completed}">
-      <!-- conditional where if the todo item is complete, then add the class 'is-complete' to then style it with a line through the item--> 
-        <input type="checkbox" v-on:change="markComplete"> <!--v-on directive is used here-->
-        <p>{{todo.title}}</p>
-        <button @click="$emit('del-todo', todo.id)" class="del">X</button>
-    </div>
+  <div class="todo-item" v-bind:class="{'is-complete':todo.completed}">
+    <p>
+      <input type="checkbox" v-on:change="markComplete" v-bind:checked="todo.completed">
+      {{todo.title}}
+      <button @click="$emit('del-todo', todo.id)" class="del">x</button>
+      </p>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "TodoItem",
-    props: ["todo"],
-    methods: {
-      markComplete(){
-        this.todo.completed = !this.todo.completed;
-      }
+  name: "TodoItem",
+  props: ["todo"],
+  methods: {
+    markComplete() {
+      this.todo.completed = !this.todo.completed;
     }
+  }
 }
 </script>
 
 <style scoped>
-.todo-item {
+  .todo-item {
     background: #f4f4f4;
     padding: 10px;
     border-bottom: 1px #ccc dotted;
