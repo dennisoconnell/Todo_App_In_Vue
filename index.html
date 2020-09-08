@@ -13,11 +13,18 @@
     <div id="app">
         <h3>Todo App In Vue</h3>
         
-        <form>
+        <form @submit.prevent="addTodo"> 
             <label for="newTodo">New Todo</label>
-            <input type="text" name="newTodo" id="newTodo">
+            <input v-model="newTodo" type="text" name="newTodo" id="newTodo">
             <button type="submit" name="Add"> Add </button>
         </form>
+
+        <ul>
+            <li v-for="todo in todos">
+                <input type="checkbox">
+                <span>{{todo.title}}</span>
+            </li>
+        </ul>
 
     </div>
 
