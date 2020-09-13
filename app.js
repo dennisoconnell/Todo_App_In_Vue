@@ -1,4 +1,4 @@
-var app = new Vue({
+const app = new Vue({
     el: '#app',
     data: {
       message: 'Hello Vue!',
@@ -11,7 +11,7 @@ var app = new Vue({
             this.todos.push({
                 title: this.newTodo,
                 done: false
-            })
+            });
             console.log(this.newTodo);
 
             this.newTodo = '';
@@ -19,4 +19,3 @@ var app = new Vue({
     }
   })
  
-  
